@@ -116,7 +116,13 @@ import UIKit
         let newEndAngle = lastEndAngle + CGFloat(angle)
         
         let data = PieSliceData(model: model, id: index, percentage: percentage)
-        let slice = PieSlice(data: data, view: PieSliceLayer(color: model.color, startAngle: lastEndAngle, endAngle: newEndAngle, animDelay: 0, center: bounds.center))
+        let slice = PieSlice(modelId: model.id,
+                             data   : data,
+                             view   : PieSliceLayer(color: model.color,
+                                                    startAngle: lastEndAngle,
+                                                    endAngle: newEndAngle,
+                                                    animDelay: 0,
+                                                    center: bounds.center))
         
         slice.view.frame = bounds
         

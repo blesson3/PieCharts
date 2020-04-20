@@ -9,10 +9,12 @@
 import UIKit
 
 public struct PieSlice: Hashable, CustomDebugStringConvertible {
-    public let view: PieSliceLayer
-    public internal(set) var data: PieSliceData
+    public               let modelId: String?        /// See `PieSliceModel.id`
+    public               let view   : PieSliceLayer
+    public internal(set) var data   : PieSliceData
 
-    public init(data: PieSliceData, view: PieSliceLayer) {
+    public init(modelId: String? = nil, data: PieSliceData, view: PieSliceLayer) {
+        self.modelId = modelId
         self.data = data
         self.view = view
     }
