@@ -164,6 +164,23 @@ import UIKit
         }
     }
     
+    public func selectSlice(withModelId modelId: String?) {
+        // find slices to select (by arbitrary `modelId`)
+        let slicesToSelect = self.slices.filter({ $0.modelId == modelId })
+        
+        // select slices
+        for s in slicesToSelect {
+            s.view.selected = true  /// slice select pattern followed from `PieChart.touchesBegan(...)` fn
+        }
+    }
+    
+    public func deselectAllSlices() {
+        // deselect all slices
+        for s in slices {
+            s.view.selected = false
+        }
+    }
+    
     public func insertSlice(index: Int, model: PieSliceModel) {
         
         guard index < slices.count else {print("Out of bounds index: \(index), slices count: \(slices.count), exit"); return}
