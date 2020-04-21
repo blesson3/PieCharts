@@ -177,7 +177,9 @@ import UIKit
     public func deselectAllSlices() {
         // deselect all slices
         for s in slices {
-            s.view.selected = false
+            if (s.view.selected) {
+                s.view.selected = false
+            }
         }
     }
     
